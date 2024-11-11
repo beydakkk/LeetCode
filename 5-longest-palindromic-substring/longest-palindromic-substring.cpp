@@ -6,14 +6,10 @@ public:
         string longest(1, s[0]);
 
         for (int center = 0; center < s.length(); ++center) {
-            // Tek uzunluklu palindromları kontrol et
-            expandAroundCenter(s, center, center, longest);
-            // Çift uzunluklu palindromları kontrol et (örn: "cc")
-            if (center + 1 < s.length() && s[center] == s[center + 1]) {
-                expandAroundCenter(s, center, center + 1, longest);
-            }
+            expandAroundCenter(s, center, center, longest); // tek uzunluklu palindromlar
+            if (center + 1 < s.length() && s[center] == s[center + 1]) 
+                expandAroundCenter(s, center, center + 1, longest); // çift uzunluklu palindromlar
         }
-
         return longest;
     }
 
